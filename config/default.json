@@ -1,0 +1,4 @@
+{
+   "MongoURI"  : "mongodb+srv://pavan123:pavan123@devconnecter.zmmjr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+   "jwtSecret" : "HyperSecret"
+}
