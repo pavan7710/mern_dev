@@ -12,24 +12,23 @@ const Dashboard = ({getCurrentProfile , auth: {user} , profile : {profile , load
         getCurrentProfile()
     },[getCurrentProfile])
 
-    return loading && profile === null ? (
-        <Spinner/>
-    ) : (
+    return (
         <Fragment>
             <h1 className="large text-primary">Dashboard</h1>
             <p className="lead">
-                <i className="fas fa-user"/> Welcome {user && user.name }
+                <i className="fas fa-user"/>Welcome {user && user.name}
             </p>
+
             {profile !== null ? (
                 <Fragment>
                     <DashboardActions/>
-                </Fragment> 
-                ): (
+                </Fragment>
+            ): (
                 <Fragment>
-                    <p>YOu have not yet setup a profile , plese add some info </p>
+                    <p>You have not yet setup a profile, plese add some info</p>
                     <Link to="/create-profile" className="btn btn-primary my-1">Create Profile</Link>
                 </Fragment>
-                )}
+            )}
         </Fragment>
     )
     

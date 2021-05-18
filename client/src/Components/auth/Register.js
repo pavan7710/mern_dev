@@ -1,6 +1,6 @@
 import React ,{ Fragment, useState }  from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link ,Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAlert } from '../../actions/alert'
 import { register } from '../../actions/auth'
@@ -8,7 +8,7 @@ import { register } from '../../actions/auth'
 
 
 
-const Register = ({setAlert , register }) => {
+const Register = ({setAlert , register , isAuthenticated }) => {
 
     
 
@@ -39,11 +39,15 @@ const Register = ({setAlert , register }) => {
         }
     }
 
+    if(isAuthenticated){
+        return <Redirect to="/dashboard" /> 
+    }
+
     return (
        <Fragment>
-           <h1 className="large text-primary">Sign In</h1>
+           <h1 className="large text-primary">Sign Up</h1>
            <p className="lead">
-                <i className="fas fa-user"/> Sign Into Your Account
+                <i className="fas fa-user"/> Register Your Account
            </p>
 
            <form onSubmit={handleSubmit} className="form">
@@ -53,10 +57,6 @@ const Register = ({setAlert , register }) => {
 
                 <div className="form-group">
                     <input value={email} onChange={handleChange}  type="text" placeholder="Email" name="email"/>
-                <small className="form-text">
-                    This site uses Gravatar so if you want a profile image, use a
-                    Gravatar email
-                </small>
                 </div>
 
                 <div className="form-group">
@@ -78,8 +78,14 @@ const Register = ({setAlert , register }) => {
 Register.propTypes = {
     setAlert : PropTypes.func.isRequired,
     register : PropTypes.func.isRequired,
+    isAuthenticated : PropTypes.bool.isRequired,
+}
+
+const mapStateToProps = (state) => {
+    return {
+        isAuthenticated : state.auth.isAuthenticated
+    }
 }
 
 
-
-export default connect(null , {setAlert ,register})(Register)
+export default connect(mapStateToProps , {setAlert ,register})(Register)

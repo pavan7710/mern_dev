@@ -54,6 +54,10 @@ const CreateProfile = ({createProfile , history}) => {
         createProfile(formData , history)
     }
 
+    const clickHandler = () => {
+      toggleSocialInputs(!displaySocialInputs)
+    }
+
     
     return (
         <Fragment>
@@ -96,9 +100,7 @@ const CreateProfile = ({createProfile , history}) => {
         </div>
         <div className="form-group">
           <input type="text" placeholder="Location" name="location" value={location} onChange={handleChange} />
-          <small className="form-text"
-            >City & state suggested (eg. Boston, MA)</small
-          >
+       
         </div>
         <div className="form-group">
           <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={handleChange} />
@@ -125,7 +127,7 @@ const CreateProfile = ({createProfile , history}) => {
         </div>
 
         <div className="my-2">
-          <button onClick={() => toggleSocialInputs(!displaySocialInputs)}  type="button" className="btn btn-light">
+          <button onClick={clickHandler}  type="button" className="btn btn-light">
             Add Social Network Links
           </button>
           <span>Optional</span>
@@ -156,13 +158,7 @@ const CreateProfile = ({createProfile , history}) => {
           <i className="fab fa-instagram fa-2x"></i>
           <input type="text" placeholder="Instagram URL" name="instagram" value={instagram} onChange={handleChange}  />
         </div>
-
-            
-            
         </Fragment>}
-
-
-       
         <input type="submit" className="btn btn-primary my-1" />
         <Link className="btn btn-light my-1"  to= "/dashboard">Go Back</Link>
       </form>

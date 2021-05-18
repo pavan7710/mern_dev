@@ -77,7 +77,7 @@ const EditProfile = ({createProfile , history , getCurrentProfile , profile : {p
     return (
         <Fragment>
             <h1 className="large text-primary">
-        Create Your Profile
+        Edit Your Profile
       </h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your
@@ -115,9 +115,9 @@ const EditProfile = ({createProfile , history , getCurrentProfile , profile : {p
         </div>
         <div className="form-group">
           <input type="text" placeholder="Location" name="location" value={location} onChange={handleChange} />
-          <small className="form-text"
+          {/* <small className="form-text"
             >City & state suggested (eg. Boston, MA)</small
-          >
+          > */}
         </div>
         <div className="form-group">
           <input type="text" placeholder="* Skills" name="skills" value={skills} onChange={handleChange} />
