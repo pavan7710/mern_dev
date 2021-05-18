@@ -1,4 +1,4 @@
-import React ,{ Fragment, useState }  from 'react'
+  import React ,{ Fragment, useState }  from 'react'
 import PropTypes from 'prop-types'
 import { Link, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -42,10 +42,7 @@ const Login = ({login , isAuthenticated}) => {
            <form onSubmit={handleSubmit} className="form">
                 <div className="form-group">
                     <input value={email} onChange={handleChange} type="text" placeholder="Email" name="email"/>
-                <small className="form-text">
-                    This site uses Gravatar so if you want a profile image, use a
-                    Gravatar email
-                </small>
+              
                 </div>
 
                 <div className="form-group">
